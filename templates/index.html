@@ -4,98 +4,112 @@
     <title>Boston Housing Price Prediction</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f7fa;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        h2 {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 28px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border 0.3s;
-        }
-        
-        input[type="text"]:focus {
-            border-color: #3498db;
-            outline: none;
-            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-        }
-        
-        .form-row {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .form-row .form-group {
-            flex: 1;
-        }
-        
-        button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            display: block;
-            margin: 30px auto 0;
-            width: 200px;
-        }
-        
-        button:hover {
-            background-color: #2980b9;
-        }
-        
-        .prediction {
-            margin-top: 30px;
-            padding: 15px;
-            background-color: #e8f4fc;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 18px;
-            color: #2c3e50;
-            border-left: 5px solid #3498db;
-        }
-        
-        .feature-info {
-            font-size: 12px;
-            color: #7f8c8d;
-            margin-top: 5px;
-        }
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(120deg, #e0f7fa, #f5f7fa);
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.01);
+}
+
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+input[type="text"]:focus {
+    border-color: #00bcd4;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 188, 212, 0.3);
+    background-color: #fff;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 250px;
+}
+
+button {
+    background: linear-gradient(to right, #00bcd4, #2196f3);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 17px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 35px auto 0;
+    display: block;
+    width: 220px;
+    box-shadow: 0 6px 15px rgba(0, 188, 212, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(to right, #0288d1, #1976d2);
+}
+
+.prediction {
+    margin-top: 35px;
+    padding: 18px;
+    background-color: #e3f2fd;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 20px;
+    color: #1e88e5;
+    font-weight: 500;
+    border-left: 6px solid #2196f3;
+}
+
+.feature-info {
+    font-size: 12px;
+    color: #607d8b;
+    margin-top: 5px;
+    font-style: italic;
+}
+
     </style>
 </head>
 <body>
