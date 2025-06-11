@@ -2,58 +2,198 @@
 <html>
 <head>
     <title>Boston Housing Price Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 30px auto 0;
+            width: 200px;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .prediction {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e8f4fc;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            color: #2c3e50;
+            border-left: 5px solid #3498db;
+        }
+        
+        .feature-info {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Boston Housing Price Prediction</h2>
-    <form action="/predict" method="post">
+    <div class="container">
+        <h2>Boston Housing Price Prediction</h2>
+        <form action="/predict" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>CRIM:</label>
+                    <input type="text" name="CRIM">
+                    <div class="feature-info">Per capita crime rate by town</div>
+                </div>
+                <div class="form-group">
+                    <label>ZN:</label>
+                    <input type="text" name="ZN">
+                    <div class="feature-info">Proportion of residential land zoned for lots over 25,000 sq.ft</div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>INDUS:</label>
+                    <input type="text" name="INDUS">
+                    <div class="feature-info">Proportion of non-retail business acres per town</div>
+                </div>
+                <div class="form-group">
+                    <label>CHAS:</label>
+                    <input type="text" name="CHAS">
+                    <div class="feature-info">Charles River dummy variable (1 if tract bounds river; 0 otherwise)</div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>NOX:</label>
+                    <input type="text" name="NOX">
+                    <div class="feature-info">Nitric oxides concentration (parts per 10 million)</div>
+                </div>
+                <div class="form-group">
+                    <label>RM:</label>
+                    <input type="text" name="RM">
+                    <div class="feature-info">Average number of rooms per dwelling</div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>AGE:</label>
+                    <input type="text" name="AGE">
+                    <div class="feature-info">Proportion of owner-occupied units built prior to 1940</div>
+                </div>
+                <div class="form-group">
+                    <label>DIS:</label>
+                    <input type="text" name="DIS">
+                    <div class="feature-info">Weighted distances to five Boston employment centers</div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>RAD:</label>
+                    <input type="text" name="RAD">
+                    <div class="feature-info">Index of accessibility to radial highways</div>
+                </div>
+                <div class="form-group">
+                    <label>TAX:</label>
+                    <input type="text" name="TAX">
+                    <div class="feature-info">Full-value property-tax rate per $10,000</div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>PTRATIO:</label>
+                    <input type="text" name="PTRATIO">
+                    <div class="feature-info">Pupil-teacher ratio by town</div>
+                </div>
+                <div class="form-group">
+                    <label>B:</label>
+                    <input type="text" name="B">
+                    <div class="feature-info">1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>LSTAT:</label>
+                <input type="text" name="LSTAT">
+                <div class="feature-info">% lower status of the population</div>
+            </div>
+            
+            <button type="submit">Predict Price</button>
+        </form>
 
-        <label>CRIM:</label><br>
-        <input type="text" name="CRIM"><br>
-
-        <label>ZN:</label><br>
-        <input type="text" name="ZN"><br>
-
-        <label>INDUS:</label><br>
-        <input type="text" name="INDUS"><br>
-
-        <label>CHAS:</label><br>
-        <input type="text" name="CHAS"><br>
-
-        <label>NOX:</label><br>
-        <input type="text" name="NOX"><br>
-
-        <label>RM:</label><br>
-        <input type="text" name="RM"><br>
-
-        <label>AGE:</label><br>
-        <input type="text" name="AGE"><br>
-
-        <label>DIS:</label><br>
-        <input type="text" name="DIS"><br>
-
-        <label>RAD:</label><br>
-        <input type="text" name="RAD"><br>
-
-        <label>TAX:</label><br>
-        <input type="text" name="TAX"><br>
-
-        <label>PTRATIO:</label><br>
-        <input type="text" name="PTRATIO"><br>
-
-        <label>B:</label><br>
-        <input type="text" name="B"><br>
-
-        <label>LSTAT:</label><br>
-        <input type="text" name="LSTAT"><br>
-
-        <br>
-        <input type="submit" value="Predict">
-
-    </form>
-
-    {% if prediction_text %}
-        <h3>{{ prediction_text }}</h3>
-    {% endif %}
-
+        {% if prediction_text %}
+            <div class="prediction">
+                {{ prediction_text }}
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
